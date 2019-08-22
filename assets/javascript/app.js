@@ -35,11 +35,4 @@ $(document).on("click", ".disp-giph", function(){
 
 
 // Put Api address in ID Giphs
-// $.ajax({
-//     url: "https://api.giphy.com/v1/gifs/random?api_key=ghmXmcCMutd5KXEiiowXnlwVMSL9U7MK&tag=&rating=G",
-//     dataType: 'jsonp',
-//     success: function(results){
-//         console.log(results);
-//     }
-// });
 // create fuction to call giphs when button is clicked
