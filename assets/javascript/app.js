@@ -26,12 +26,38 @@ $("#submitNewGiph").on("click", function(){
 $(document).on("click", ".disp-giph", function(){
     var thisGiph = $(this).val();
     var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=ghmXmcCMutd5KXEiiowXnlwVMSL9U7MK&q="+thisGiph+"&limit=10&offset=0&rating=G&lang=en";
-
+    
     $.get(queryUrl)
         .then(function(response){
-            console.log(response)
+            console.log(queryUrl);
+            console.log(response);
+
+    // $.ajax({
+	// 	url: queryURL,
+	// 	method: "GET"
+	// }).done(function(response){
+           
+    results = response.data;
+        
+        for(var j=0; j<results.length; j++){
+            giphsDiv = $("<div class = giphs>");
+            $("#gifs").append(giphsDiv);
+
+            rating = $("<div>Rating: " + results[j].rating + "</div>");
+
+            gifShow = $("<img data-state='still' src='" + results[j].images.fixed_height_still.url + "'>");
+			gifShow.attr("data-still", results[j].images.fixed_height_still.url);
+			gifShow.attr("data-animate", results[j].images.fixed_height.url);
+            gifShow.addClass("gif");
+            
+            giphsDiv.append(rating);
+            giphsDiv.append(gifShow);
+        }
         })
-})
+      });        
+
+
+
 
 
 // Put Api address in ID Giphs
