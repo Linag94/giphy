@@ -40,14 +40,21 @@ $(document).on("click", ".disp-giph", function(){
     results = response.data;
         
         for(var j=0; j<results.length; j++){
-            giphsDiv = $("<div class = giphs>");
+            giphsDiv = $("#giphs");
             $("#gifs").append(giphsDiv);
 
             rating = $("<div>Rating: " + results[j].rating + "</div>");
+            // image element for giph
+            gifShow = $("<img>");
+            gifShow.attr({
+                "data-still": results[j].images.fixed_height_still.url,
+                "data-animate": results[j].images.fixed_height.url
+                
+            })
 
-            gifShow = $("<img data-state='still' src='" + results[j].images.fixed_height_still.url + "'>");
-			gifShow.attr("data-still", results[j].images.fixed_height_still.url);
-			gifShow.attr("data-animate", results[j].images.fixed_height.url);
+            // gifShow = $("<img data-state='still' src='" + results[j].images.fixed_height_still.url + "'>");
+			// gifShow.attr
+			// gifShow.attr(");
             gifShow.addClass("gif");
             
             giphsDiv.append(rating);
