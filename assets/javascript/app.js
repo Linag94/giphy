@@ -48,7 +48,8 @@ $(document).on("click", ".disp-giph", function(){
             gifShow = $("<img>");
             gifShow.attr({
                 "data-still": results[j].images.fixed_height_still.url,
-                "data-animate": results[j].images.fixed_height.url
+                "data-animate": results[j].images.fixed_height.url,
+                "src": results[j].images.fixed_height_still.url
                 
             })
 
